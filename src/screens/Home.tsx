@@ -22,7 +22,7 @@ const Home = () => {
         />
       </div>
       <div className="w-full flex flex-col items-center justify-center gap-6">
-        <h2 className="text-4xl lg:text-6xl font-bold">Projects</h2>
+        <h2 className="text-4xl lg:text-6xl font-bold">Projectos</h2>
         <div className="w-full h-full grid grid-cols-1 lg:grid-cols-12 gap-6 place-items-center">
           {projects.map((project) => (
             <div
