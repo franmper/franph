@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useRoute } from "wouter";
 import { projects } from "../data/projects";
+import ImageModal from "../components/ImageModal";
 
 interface ImageFile {
   name: string;
@@ -10,6 +11,7 @@ interface ImageFile {
 export default function Project() {
   const [, params] = useRoute("/project/:id");
   const [images, setImages] = React.useState<ImageFile[]>([]);
+  const [selectedImageIndex, setSelectedImageIndex] = React.useState<number | null>(null);
   const project = projects.find((p) => p.id === params?.id);
 
   React.useEffect(() => {
@@ -67,7 +69,8 @@ export default function Project() {
         {images.map((image, index) => (
           <div
             key={image.path}
-            className="aspect-square overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            className="aspect-square overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+            onClick={() => setSelectedImageIndex(index)}
           >
             <img
               src={image.path}
@@ -78,6 +81,20 @@ export default function Project() {
           </div>
         ))}
       </div>
+
+      {selectedImageIndex !== null && (
+        <ImageModal
+          isOpen={selectedImageIndex !== null}
+          onClose={() => {
+            console.log("onClose");
+            setSelectedImageIndex(null);
+          }}
+          images={images}
+          currentImageIndex={selectedImageIndex}
+          onNavigate={setSelectedImageIndex}
+          projectTitle={project.title}
+        />
+      )}
     </div>
   );
 }
