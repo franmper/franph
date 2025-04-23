@@ -8,7 +8,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "8f7d3b2a-1c4e-4f6d-9e8b-5a7c3d2f1e9a",
-    title: "Parked Cars",
+    title: "Autos en lugares",
     image: "/photos/Autos Estacionados/DSC01552.jpg",
     baseFolder: "/photos/Autos Estacionados",
   },

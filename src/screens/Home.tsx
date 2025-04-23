@@ -10,7 +10,8 @@ const Home = () => {
         <div className="w-full lg:h-full h-1/2 flex flex-col items-center justify-center lg:col-span-6 col-span-12 gap-8 px-4">
           <h1 className="text-6xl lg:text-9xl font-bold">Fran</h1>
           <p className="text-lg lg:text-3xl text-center">
-            I'm an independent photographer based in Córdoba, Argentina. And this is my work
+            Fotógrafo independiente de Córdoba, Argentina. Aficionado por la fotografía de carreras
+            y paisajes.
           </p>
           <ChevronDown className="w-12 h-12 animate-bounce" />
         </div>
