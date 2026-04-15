@@ -1,5 +1,7 @@
 import * as React from "react";
 import { useRoute } from "wouter";
+import { navigate } from "wouter/use-browser-location";
+import { ArrowLeft } from "lucide-react";
 import { projects } from "../data/projects";
 import ImageModal from "../components/ImageModal";
 
@@ -63,7 +65,15 @@ export default function Project() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8 text-light">{project.title}</h1>
+      <div className="flex items-center gap-4 mb-8">
+        <button
+          onClick={() => navigate("/")}
+          className="text-white hover:text-gray-300 transition-colors cursor-pointer"
+        >
+          <ArrowLeft className="w-8 h-8" />
+        </button>
+        <h1 className="text-4xl font-bold text-light">{project.title}</h1>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {images.map((image, index) => (

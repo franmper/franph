@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -49,6 +49,13 @@ export default function ImageModal({
   return (
     <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
       <div className="relative w-full h-full flex items-center justify-center">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors cursor-pointer z-10"
+        >
+          <X className="w-8 h-8" />
+        </button>
+
         {hasPrev && (
           <button
             onClick={() => onNavigate(currentImageIndex - 1)}
